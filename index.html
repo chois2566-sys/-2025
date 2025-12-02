@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>형사소송법 변호 게임</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Pretendard:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Start Screen -->
+        <section id="start-screen" class="screen active">
+            <div class="content-box">
+                <h1 class="title">정의의 저울</h1>
+                <p class="subtitle">형사소송법 변호 시뮬레이션</p>
+                <button id="start-btn" class="btn primary">재판 시작</button>
+            </div>
+        </section>
+
+        <!-- Game Screen -->
+        <section id="game-screen" class="screen hidden">
+            <div class="header">
+                <h3 id="case-title" style="text-align: center; color: #94a3b8; margin-bottom: 10px;"></h3>
+                <div class="health-bar-container">
+                    <span>신뢰도</span>
+                    <div class="health-bar-bg">
+                        <div id="health-bar" class="health-bar-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-display">
+                <div id="scenario-text" class="scenario-text">
+                    <!-- Text will be injected here -->
+                </div>
+            </div>
+
+            <div id="choices-container" class="choices-container">
+                <!-- Buttons will be injected here -->
+            </div>
+        </section>
+
+        <!-- Result Screen -->
+        <section id="result-screen" class="screen hidden">
+            <div class="content-box">
+                <h2 id="result-title">판결</h2>
+                <p id="result-message">결과 내용</p>
+                <button id="restart-btn" class="btn secondary">다시 하기</button>
+            </div>
+        </section>
+    </div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

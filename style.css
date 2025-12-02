@@ -1,0 +1,219 @@
+:root {
+    --bg-color: #0f172a;
+    --text-color: #e2e8f0;
+    --accent-color: #fbbf24; /* Gold */
+    --accent-hover: #d97706;
+    --panel-bg: #1e293b;
+    --border-color: #334155;
+    --danger-color: #ef4444;
+    --font-serif: 'Noto Serif KR', serif;
+    --font-sans: 'Pretendard', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#app {
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    max-height: 900px;
+    position: relative;
+    padding: 20px;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Typography */
+h1.title {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    margin-bottom: 3rem;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    border: 1px solid var(--accent-color);
+    background: transparent;
+    color: var(--accent-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+}
+
+.btn.primary {
+    font-size: 1.3rem;
+    padding: 16px 48px;
+}
+
+/* Game Screen Layout */
+#game-screen {
+    justify-content: flex-start;
+    padding-top: 40px;
+}
+
+.header {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.health-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.health-bar-bg {
+    flex-grow: 1;
+    height: 10px;
+    background-color: var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.health-bar-fill {
+    height: 100%;
+    background-color: var(--danger-color); /* Default to red/danger color or green depending on logic, let's use accent or green */
+    background-color: #22c55e;
+    transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+.main-display {
+    width: 100%;
+    flex-grow: 1;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+}
+
+.scenario-text {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+}
+
+.choices-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.choice-btn {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.choice-btn:hover {
+    border-color: var(--accent-color);
+    background-color: #2a3855;
+    transform: translateY(-2px);
+}
+
+/* Result Screen */
+#result-title {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+#result-message {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.content-box {
+    text-align: center;
+    background: rgba(30, 41, 59, 0.8);
+    padding: 60px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+}
+
+/* Animations */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.4s ease-in-out;
+}
